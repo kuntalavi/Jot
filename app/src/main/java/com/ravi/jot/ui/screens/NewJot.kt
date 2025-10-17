@@ -98,15 +98,14 @@ fun NewJot(
         JotEntry(
             e = e,
             month = month,
-            date = date,
-            photoURI = ""
+            date = date
         )
     )
 
     LaunchedEffect(jotEntry) {
         if (jotEntryId != -1) {
             richTextState.setText(jotEntry.content)
-            vm.sImageURI = jotEntry.photoURI?.toUri()
+            vm.sImageURI = jotEntry.photoURI.toUri()
         }
         if (jotEntryId == -1) {
             focusRequest.requestFocus()

@@ -34,18 +34,12 @@ class NewJotVM(private val repo: JotEntryRepo) : ViewModel() {
                 JotEntry(
                     e = e,
                     month = month,
-                    date = date,
-                    photoURI = ""
+                    date = date
                 )
             )
         }
         return repo.getJotEntryById(i).map {
-            it ?: JotEntry(
-                e = e,
-                month = month,
-                date = date,
-                photoURI = ""
-            )
+            it ?: JotEntry()
         }
     }
 

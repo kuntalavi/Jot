@@ -12,5 +12,5 @@ data class JotEntry(
     val e: String = "",
     val month: String = "",
     val date: Int = 0,
-    val photoURI: String?
+    val photoURI: String = ""
 )
