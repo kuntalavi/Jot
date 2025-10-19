@@ -84,7 +84,7 @@ fun NewJot(
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
-                vm.sImageURI = uri
+                vm.sImageURI(uri.toString())
             }
         }
     )
@@ -105,7 +105,7 @@ fun NewJot(
     LaunchedEffect(jotEntry) {
         if (jotEntryId != -1) {
             richTextState.setText(jotEntry.content)
-            vm.sImageURI = jotEntry.photoURI.toUri()
+            vm.sImageURI(uri = jotEntry.photoURI)
         }
         if (jotEntryId == -1) {
             focusRequest.requestFocus()
@@ -125,7 +125,7 @@ fun NewJot(
                         onClick = {
                             val jotToAdd = jotEntry.copy(
                                 content = richTextState.toText(),
-                                photoURI = vm.sImageURI.toString()
+                                photoURI = vm.imageURI
                             )
                             vm.addJotEntry(jotToAdd)
                             goBack()
@@ -193,10 +193,10 @@ fun NewJot(
                 )
             }
 
-            vm.sImageURI?.let { uri ->
+            if (vm.imageURI != "") {
                 item {
                     AsyncImage(
-                        model = uri,
+                        model = vm.imageURI.toUri(),
                         contentDescription = null,
                         contentScale = ContentScale.Fit,
                         modifier = Modifier

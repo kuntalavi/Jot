@@ -1,6 +1,5 @@
 package com.ravi.jot.ui.vm
 
-import android.net.Uri
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -18,7 +17,12 @@ class NewJotVM(private val repo: JotEntryRepo) : ViewModel() {
     var more by mutableStateOf(false)
         private set
 
-    var sImageURI by mutableStateOf<Uri?>(null)
+    var imageURI by mutableStateOf("")
+        private set
+
+    fun sImageURI(uri: String) {
+        imageURI = uri
+    }
 
     fun showM() {
         more = true
