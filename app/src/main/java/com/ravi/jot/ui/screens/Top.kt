@@ -124,7 +124,19 @@ fun Top(
                 )
             }
             composable<Route.Top.C> {
-
+                C(
+                    jotDB = jotDB,
+                    goToJot = { jotEntryId, e, month, date ->
+                        navController.navigate(
+                            Route.Root.NewJ(
+                                jotEntryId = jotEntryId,
+                                e = e,
+                                month = month,
+                                date = date
+                            )
+                        )
+                    }
+                )
             }
             composable<Route.Top.A> {
                 Attachments(jotDB = jotDB)

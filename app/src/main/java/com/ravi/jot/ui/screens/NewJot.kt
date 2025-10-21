@@ -6,18 +6,15 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.isImeVisible
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Photo
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -34,7 +31,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
@@ -47,6 +43,7 @@ import com.mohamedrejeb.richeditor.ui.material3.RichTextEditorDefaults
 import com.ravi.jot.data.JotDatabase
 import com.ravi.jot.data.JotEntry
 import com.ravi.jot.data.JotEntryRepo
+import com.ravi.jot.ui.components.RichTextT
 import com.ravi.jot.ui.theme.B
 import com.ravi.jot.ui.theme.White
 import com.ravi.jot.ui.vm.NewJotVM
@@ -202,45 +199,9 @@ fun NewJot(
                         modifier = Modifier
                             .padding(horizontal = 16.dp)
                             .fillMaxWidth()
-
                     )
                 }
             }
         }
-    }
-}
-
-@Composable
-fun RichTextT(
-//    state: com.mohamedrejeb.richeditor.model.RichTextState,
-    getImage: () -> Unit
-) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(Color(0xFFF9F8FE))
-            .imePadding()
-    ) {
-        IconButton(
-            onClick = { getImage() }
-        ) {
-            Icon(
-                imageVector = Icons.Default.Photo,
-                contentDescription = ""
-            )
-        }
-//        IconButton(
-//            onClick = { state.toggleSpanStyle(SpanStyle(fontWeight = FontWeight.Bold)) },
-//            colors = if (state.currentSpanStyle.fontWeight == FontWeight.Bold)
-//                IconButtonDefaults.iconButtonColors(
-//                    containerColor = B,
-//                    contentColor = White
-//                ) else IconButtonDefaults.iconButtonColors()
-//        ) {
-//            Icon(
-//                imageVector = Icons.Default.FormatBold,
-//                contentDescription = ""
-//            )
-//        }
     }
 }
