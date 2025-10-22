@@ -1,4 +1,4 @@
-package com.ravi.jot.ui.screens
+package com.ravi.jot.presentation.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

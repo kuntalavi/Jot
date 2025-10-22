@@ -1,4 +1,4 @@
-package com.ravi.jot.ui.components
+package com.ravi.jot.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row

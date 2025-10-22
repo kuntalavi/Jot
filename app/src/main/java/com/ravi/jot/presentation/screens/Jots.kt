@@ -1,4 +1,4 @@
-package com.ravi.jot.ui.screens
+package com.ravi.jot.presentation.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
@@ -20,8 +20,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ravi.jot.data.JotDatabase
 import com.ravi.jot.data.JotEntryRepo
-import com.ravi.jot.ui.vm.JotVM
-import com.ravi.jot.ui.vmf.JotVMF
+import com.ravi.jot.presentation.vm.JotVM
+import com.ravi.jot.presentation.vmf.JotVMF
 
 @Composable
 fun Jots(

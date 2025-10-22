@@ -1,4 +1,4 @@
-package com.ravi.jot.ui.screens
+package com.ravi.jot.presentation.screens
 
 import android.content.Intent
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -43,11 +43,11 @@ import com.mohamedrejeb.richeditor.ui.material3.RichTextEditorDefaults
 import com.ravi.jot.data.JotDatabase
 import com.ravi.jot.data.JotEntry
 import com.ravi.jot.data.JotEntryRepo
-import com.ravi.jot.ui.components.RichTextT
-import com.ravi.jot.ui.theme.B
-import com.ravi.jot.ui.theme.White
-import com.ravi.jot.ui.vm.NewJotVM
-import com.ravi.jot.ui.vmf.NewJotVMF
+import com.ravi.jot.presentation.components.RichTextT
+import com.ravi.jot.presentation.theme.B
+import com.ravi.jot.presentation.theme.White
+import com.ravi.jot.presentation.vm.NewJotVM
+import com.ravi.jot.presentation.vmf.NewJotVMF
 
 @OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
 @Composable

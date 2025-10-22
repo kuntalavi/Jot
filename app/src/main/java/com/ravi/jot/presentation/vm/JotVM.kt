@@ -1,4 +1,4 @@
-package com.ravi.jot.ui.vm
+package com.ravi.jot.presentation.vm
 
 import androidx.lifecycle.ViewModel
 import com.ravi.jot.data.JotEntryRepo

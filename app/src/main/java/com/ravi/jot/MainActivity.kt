@@ -10,9 +10,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.ravi.jot.data.JotDatabase
-import com.ravi.jot.ui.screens.NewJot
-import com.ravi.jot.ui.screens.Top
-import com.ravi.jot.ui.theme.JotTheme
+import com.ravi.jot.presentation.screens.NewJot
+import com.ravi.jot.presentation.screens.Top
+import com.ravi.jot.presentation.theme.JotTheme
 import kotlinx.serialization.Serializable
 
 class MainActivity : ComponentActivity() {

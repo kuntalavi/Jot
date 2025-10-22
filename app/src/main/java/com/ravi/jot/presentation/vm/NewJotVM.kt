@@ -1,4 +1,4 @@
-package com.ravi.jot.ui.vm
+package com.ravi.jot.presentation.vm
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

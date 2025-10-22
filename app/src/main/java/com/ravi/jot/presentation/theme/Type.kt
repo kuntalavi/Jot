@@ -1,4 +1,4 @@
-package com.ravi.jot.ui.theme
+package com.ravi.jot.presentation.theme
 
 
 import androidx.compose.material3.Typography

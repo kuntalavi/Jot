@@ -1,4 +1,4 @@
-package com.ravi.jot.ui.screens
+package com.ravi.jot.presentation.screens
 
 import android.net.Uri
 import androidx.compose.foundation.Image
@@ -23,8 +23,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
 import com.ravi.jot.data.JotDatabase
 import com.ravi.jot.data.JotEntryRepo
-import com.ravi.jot.ui.vm.AttachmentsVM
-import com.ravi.jot.ui.vmf.AttachmentsVMF
+import com.ravi.jot.presentation.vm.AttachmentsVM
+import com.ravi.jot.presentation.vmf.AttachmentsVMF
 
 @Composable
 fun Attachments(jotDB: JotDatabase) {
