@@ -7,12 +7,17 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ravi.jot.data.JotEntry
 import com.ravi.jot.data.JotEntryRepo
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class NewJotVM(private val repo: JotEntryRepo) : ViewModel() {
+@HiltViewModel
+class NewJotVM @Inject constructor(
+    private val repo: JotEntryRepo
+) : ViewModel() {
 
     var more by mutableStateOf(false)
         private set

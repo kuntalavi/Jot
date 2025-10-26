@@ -1,8 +1,11 @@
 package com.ravi.jot.data
 
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class JotEntryRepo(private val jotEntryDao: JotEntryDao) {
+class JotEntryRepo @Inject constructor(
+    private val jotEntryDao: JotEntryDao
+) {
 
     val jotEntries: Flow<List<JotEntry>> = jotEntryDao.getAJotEntries()
 

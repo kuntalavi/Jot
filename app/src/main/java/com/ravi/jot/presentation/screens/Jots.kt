@@ -12,26 +12,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.ravi.jot.data.JotDatabase
-import com.ravi.jot.data.JotEntryRepo
 import com.ravi.jot.presentation.vm.JotVM
-import com.ravi.jot.presentation.vmf.JotVMF
 
 @Composable
 fun Jots(
-    jotDB: JotDatabase,
+    vm: JotVM,
     goToJot: (jotEntryId: Int) -> Unit
 ) {
-    val jedao = jotDB.jotEntryDao()
-    val jerepo = remember { JotEntryRepo(jedao) }
-    val vmf = remember { JotVMF(jerepo) }
-    val vm: JotVM = viewModel(factory = vmf)
 
     val entries by vm.entries.collectAsState(
         emptyList()

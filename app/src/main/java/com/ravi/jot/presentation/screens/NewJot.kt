@@ -35,35 +35,26 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
-import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.mohamedrejeb.richeditor.model.rememberRichTextState
 import com.mohamedrejeb.richeditor.ui.material3.RichTextEditor
 import com.mohamedrejeb.richeditor.ui.material3.RichTextEditorDefaults
-import com.ravi.jot.data.JotDatabase
 import com.ravi.jot.data.JotEntry
-import com.ravi.jot.data.JotEntryRepo
 import com.ravi.jot.presentation.components.RichTextT
 import com.ravi.jot.presentation.theme.B
 import com.ravi.jot.presentation.theme.White
 import com.ravi.jot.presentation.vm.NewJotVM
-import com.ravi.jot.presentation.vmf.NewJotVMF
 
 @OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun NewJot(
-    jotDB: JotDatabase,
+    vm: NewJotVM,
     jotEntryId: Int,
     e: String,
     month: String,
     date: Int,
     goBack: () -> Unit
 ) {
-
-    val jedao = jotDB.jotEntryDao()
-    val jerepo = remember { JotEntryRepo(jedao) }
-    val vmf = remember { NewJotVMF(jerepo) }
-    val vm: NewJotVM = viewModel(factory = vmf)
 
     val richTextState = rememberRichTextState()
     val context = LocalContext.current

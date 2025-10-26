@@ -20,12 +20,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ravi.jot.data.JotDatabase
 import java.time.YearMonth
 
 @Composable
 fun C(
-    jotDB: JotDatabase,
     goToJot: (jotEntryId: Int, e: String, month: String, date: Int) -> Unit
 ) {
     val months = remember {

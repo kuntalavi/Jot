@@ -5,26 +5,29 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import com.ravi.jot.data.JotDatabase
 import com.ravi.jot.presentation.screens.NewJot
 import com.ravi.jot.presentation.screens.Top
 import com.ravi.jot.presentation.theme.JotTheme
+import com.ravi.jot.presentation.vm.NewJotVM
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.serialization.Serializable
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val jotDB = JotDatabase.getJotDB(applicationContext)
+//        val jotDB = JotDatabase.getJotDB(applicationContext)
 
         enableEdgeToEdge()
         setContent {
             JotTheme {
-                JotApp(jotDB)
+                JotApp()
             }
         }
     }
@@ -60,7 +63,7 @@ sealed interface Route {
 }
 
 @Composable
-fun JotApp(jotDB: JotDatabase) {
+fun JotApp() {
     val navController = rememberNavController()
 
     NavHost(
@@ -69,14 +72,14 @@ fun JotApp(jotDB: JotDatabase) {
     ) {
         composable<Route.Root.T> {
             Top(
-                jotDB = jotDB,
                 navController = navController
             )
         }
         composable<Route.Root.NewJ> { backStackEntry ->
             val args = backStackEntry.toRoute<Route.Root.NewJ>()
+            val vm: NewJotVM = hiltViewModel()
             NewJot(
-                jotDB = jotDB,
+                vm = vm,
                 e = args.e,
                 month = args.month,
                 date = args.date,
