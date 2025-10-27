@@ -7,10 +7,6 @@ plugins {
     alias(libs.plugins.hilt)
 }
 
-hilt {
-    enableAggregatingTask = false
-}
-
 android {
     namespace = "com.ravi.jot"
     compileSdk = 36
